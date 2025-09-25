@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>&#127916; Movies-API</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies API - Documentación</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px 0;
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            border-radius: 10px;
+        }
+        
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #3498db;
+        }
+        
+        h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+        
+        .endpoint {
+            background: white;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+            transition: transform 0.2s;
+        }
+        
+        .endpoint:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .method {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-weight: bold;
+            margin-right: 10px;
+            color: white;
+            font-size: 0.9em;
+        }
+        
+        .get { background: #28a745; }
+        .post { background: #007bff; }
+        .put { background: #ffc107; color: #000; }
+        .delete { background: #dc3545; }
+        
+        .url {
+            font-family: 'Courier New', monospace;
+            background: #f1f1f1;
+            padding: 2px 6px;
+            border-radius: 3px;
+            margin: 0 5px;
+        }
+        
+        .description {
+            margin-top: 10px;
+            color: #666;
+        }
+        
+        .auth-note {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        
+        .filter-example {
+            background: #e8f5e8;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .feature-item {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #e74c3c;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: #2c3e50;
+            color: white;
+            border-radius: 10px;
+            margin-top: 40px;
+        }
+        
+        .footer-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-item {
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+        }
+        
+        .footer-item strong {
+            display: block;
+            margin-bottom: 5px;
+            color: #3498db;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎬 Movies API</h1>
+            <p class="subtitle">API RESTful para gestión de películas y géneros cinematográficos</p>
+        </header>
+
+        <div class="section">
+            <h2>📖 Descripción</h2>
+            <p>Esta API permite gestionar una completa biblioteca de películas y sus géneros. Incluye funcionalidades avanzadas de autenticación con JWT, operaciones CRUD completas, filtrado múltiple y búsqueda inteligente por nombre, director y descripción.</p>
+            
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <h3>🎬 Gestión de Películas</h3>
+                    <p>CRUD completo para películas con información detallada incluyendo director, año, géneros, duración, rating y más.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>🎭 Gestión de Géneros</h3>
+                    <p>Sistema completo de géneros cinematográficos con descripción y popularidad para organizar las películas.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>🔍 Búsqueda Avanzada</h3>
+                    <p>Filtrado por múltiples campos: género, año, rating, director, idioma y búsqueda de texto libre.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>🔐 Autenticación JWT</h3>
+                    <p>Sistema seguro de autenticación con roles de usuario para proteger operaciones administrativas.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🔐 Autenticación</h2>
+            <div class="auth-note">
+                <strong>⚠️ Nota:</strong> Los endpoints de creación, actualización y eliminación requieren autenticación JWT.
+                <br>Incluir el token en el header: <code>Authorization: Bearer [tu_token]</code>
+            </div>
+            
+            <div class="endpoint">
+                <span class="method post">POST</span>
+                <span class="url">/api/auth/register</span>
+                <div class="description">Registrar nuevo usuario</div>
+            </div>
+            
+            <div class="endpoint">
+                <span class="method post">POST</span>
+                <span class="url">/api/auth/login</span>
+                <div class="description">Iniciar sesión y obtener token JWT</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🎬 Endpoints de Películas</h2>
+            
+            <div class="endpoint">
+                <span class="method get">GET</span>
+                <span class="url">/api/movies</span>
+                <div class="description">Obtener todas las películas con filtros opcionales</div>
+                <div class="filter-example">
+                    Filtros disponibles:<br>
+                    ?genre=Action - Filtrar por género<br>
+                    ?year=2023 - Filtrar por año<br>
+                    ?rating=8 - Películas con rating mayor o igual<br>
+                    ?director=nolan - Filtrar por director<br>
+                    ?language=english - Filtrar por idioma<br>
+                    ?search=batman - Buscar en título, director y descripción<br>
+                    ?page=1&limit=10 - Paginación<br>
+                    ?sort=-rating - Ordenar por campo (- para descendente)
+                </div>
+            </div>
+            
+            <div class="endpoint">
+                <span class="method get">GET</span>
+                <span class="url">/api/movies/stats</span>
+                <div class="description">Obtener estadísticas generales de películas</div>
+            </div>
+            
+            <div class="endpoint">
+                <span class="method get">GET</span>
+                <span class="url">/api/movies/:id</span>
+                <div class="description">Obtener una película específica por ID</div>
+            </div>
+            
+            <div class="endpoint">
+                <span class="method post">POST</span>
+                <span class="url">/api/movies</span>
+                <div class="description">Crear nueva película (requiere autenticación de admin)</div>
+            </div>
+            
+            <div class="endpoint">
+                <span class="method put">PUT</span>
+                <span class="url">/api/movies/:id</span>
+                <div class="description">Actualizar película existente (requiere autenticación de admin)</div>
+            </div>
+            
+            <div class="endpoint">
+                <span class="method delete">DELETE</span>
+                <span class="url">/api/movies/:id</span>
+                <div class="description">Eliminar película (requiere autenticación de admin)</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🎭 Endpoints de Géneros</h2>
+            
+            <div class="endpoint">
+                <span class="method get">GET</span>
+                <span class="url">/api/genres</span>
+                <div class="description">Obtener todos los géneros con filtros opcionales</div>
+                <div class="filter-example">
+                    Filtros disponibles:<br>
+                    ?search=action - Buscar por nombre de género<br>
+                    ?popularity=5 - Géneros con popularidad mayor o igual<br>
+                    ?page=1&limit=20 - Paginación
+                </div>
+            </div>
+            
+            <div class="endpoint">
+                <span class="method get">GET</span>
+                <span class="url">/api/genres/:id</span>
+                <div class="description">Obtener un género específico por ID (incluye sus películas)</div>
+            </div>
+            
+            <div class="endpoint">
+                <span class="method post">POST</span>
+                <span class="url">/api/genres</span>
+                <div class="description">Crear nuevo género (requiere autenticación de admin)</div>
+            </div>
+            
+            <div class="endpoint">
+                <span class="method put">PUT</span>
+                <span class="url">/api/genres/:id</span>
+                <div class="description">Actualizar género existente (requiere autenticación de admin)</div>
+            </div>
+            
+            <div class="endpoint">
+                <span class="method delete">DELETE</span>
+                <span class="url">/api/genres/:id</span>
+                <div class="description">Eliminar género (requiere autenticación de admin)</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🛠️ Tecnologías Utilizadas</h2>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <h3>Backend</h3>
+                    <p>✅ Node.js & Express.js<br>✅ Arquitectura MVC<br>✅ Middleware personalizado</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Base de Datos</h3>
+                    <p>✅ MongoDB & Mongoose<br>✅ Relaciones entre modelos<br>✅ Agregaciones y estadísticas</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Seguridad</h3>
+                    <p>✅ JWT para autenticación<br>✅ bcryptjs para encriptación<br>✅ Validaciones con Joi</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Funcionalidades</h3>
+                    <p>✅ CORS habilitado<br>✅ Filtrado avanzado<br>✅ Paginación inteligente</p>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div class="footer-info">
+                <div class="footer-item">
+                    <strong>Estudiante:</strong>
+                    [Tu Nombre y Apellido]
+                </div>
+                <div class="footer-item">
+                    <strong>Materia:</strong>
+                    Aplicaciones Híbridas
+                </div>
+                <div class="footer-item">
+                    <strong>Docente:</strong>
+                    [Nombre del Docente]
+                </div>
+                <div class="footer-item">
+                    <strong>Comisión:</strong>
+                    [Tu Comisión]
+                </div>
+            </div>
+            <p>&copy; 2025 Movies API - Examen Parcial 1 - Aplicaciones Híbridas</p>
+        </footer>
+    </div>
+</body>
+</html>
+</body>
+</html>
