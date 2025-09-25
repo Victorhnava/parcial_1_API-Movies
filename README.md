@@ -104,7 +104,7 @@ movies-api/
 | POST | `/api/auth/register` | Registrar nuevo usuario |
 | POST | `/api/auth/login` | Iniciar sesión |
 
-### 🎬 Películas
+###  Películas
 
 | Método | Endpoint | Descripción | Auth |
 |--------|----------|-------------|------|
@@ -121,7 +121,7 @@ movies-api/
 - `?search=batman` - Buscar por título
 - `?page=1&limit=10` - Paginación
 
-### 🎪 Directores
+###  Directores
 
 | Método | Endpoint | Descripción | Auth |
 |--------|----------|-------------|------|
@@ -257,3 +257,4 @@ Para consultas sobre este proyecto, contactar a Victor Nava
 ---
 
 *Proyecto desarrollado como examen parcial para la materia Aplicaciones Híbridas*
+
