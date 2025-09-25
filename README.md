@@ -2,10 +2,10 @@
 
 ## Información del Proyecto
 
-- **Estudiante:** [Tu Nombre y Apellido]
+- **Estudiante:** Victo Nava
 - **Materia:** Aplicaciones Híbridas
-- **Docente:** [Nombre del Docente]
-- **Comisión:** [Tu Comisión]
+- **Docente:** Jonathan Emanuel Cruz
+- **Comisión:** DWN4AV
 
 ## Descripción
 
@@ -257,4 +257,5 @@ Para consultas sobre este proyecto, contactar a Victor Nava
 ---
 
 *Proyecto desarrollado como examen parcial para la materia Aplicaciones Híbridas*
+
 
